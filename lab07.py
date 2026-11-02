@@ -26,25 +26,30 @@ def is_sorted(values):
     #   (every item is <= the one after it), otherwise False.
     #   Base case: a list of 0 or 1 items is already sorted.
     #   Recursive case: the first two items are in order AND the rest is sorted.
-    pass
+    if len(values) <= 1:
+        return True
+    return values[0] <= values[1] and is_sorted(values[1:])
+    
 
 
 class Rectangle:
     def __init__(self, width, height):
         # TODO (Part 3, OOP): store width and height on self
-        pass
+        self.width = width
+        self.height = height
+        
 
     def area(self):
         # TODO: return width * height
-        pass
+        return self.width*self.height
 
     def perimeter(self):
         # TODO: return 2 * (width + height)
-        pass
+        return 2*(self.width + self.height)
 
     def __str__(self):
         # TODO: return "<width>x<height>", e.g. Rectangle(3, 4) -> "3x4"
-        pass
+        return f"{self.width}x{self.height}"
 
 
 class Square(Rectangle):   # Part 4 - stretch (optional)
@@ -52,15 +57,16 @@ class Square(Rectangle):   # Part 4 - stretch (optional)
         # TODO: a Square is a Rectangle whose width and height are the same. Call the
         #   Rectangle constructor with `side` for both (use super().__init__(...)).
         #   area, perimeter, and __str__ are then inherited automatically.
+        super().__init__(side,side)
         pass
 
 
 def main():
     # Optional scratch space - try your work here, then run: python lab07.py
-    # print(count_occurrences(2, [1, 2, 2, 3, 2]))   # 3
-    # print(is_sorted([1, 2, 3]))                    # True
-    # print(Rectangle(3, 4).area())                  # 12
-    # print(Square(5))                               # 5x5
+    print(count_occurrences(2, [1, 2, 2, 3, 2]))   # 3
+    print(is_sorted([1, 2, 3]))                    # True
+    print(Rectangle(3, 4).area())                  # 12
+    print(Square(5))                               # 5x5
     pass
 
 
