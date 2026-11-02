@@ -12,7 +12,13 @@ def count_occurrences(target, values):
     #   Base case: an empty list contains it 0 times.
     #   Recursive case: 1 (if the first item equals `target`, otherwise 0) plus the
     #   count in the rest of the list, values[1:].
-    pass
+    if not values:
+        return 0
+    if values[0] == target:
+        return 1 + count_occurrences(target,values[1:])
+    else:
+        return 0 + count_occurrences(target,values[1:])
+    
 
 
 def is_sorted(values):
